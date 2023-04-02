@@ -105,20 +105,12 @@
 % Setup fonts
 \defaultfontfeatures{Mapping=tex-text}
 
-% Define font to use according to localFont option
-\ifundef{\@local}
-{
-%\setmainfont[BoldFont = Helvetica Neue, ItalicFont=Helvetica Neue Thin Italic ,SmallCapsFont = Helvetica Neue Light]{Helvetica Neue Thin}
-    \setmainfont{Source Sans Pro Light}[
-        BoldFont = SourceSansPro-Regular,
-        ItalicFont= Source Sans Pro Light Italic]
-}
-{
-    \setmainfont{SourceSansPro-Light}[
-        Path = fonts/,
-        BoldFont = SourceSansPro-Regular,
-        ItalicFont = SourceSansPro-LightIt]
-}
+% Define font
+\defaultfontfeatures{Mapping=tex-text}
+\setmainfont[Color=primary, Path = fonts/calibri/]{calibri}
+\setsansfont[Scale=MatchLowercase,Mapping=tex-text, Path = fonts/calibri/]{calibri}
+\newcommand{\custombold}[1]{\color{subheadings}\fontspec[Path = fonts/calibri/]{calibri-bold}\selectfont #1 \normalfont}
+
 
 %New length definition
 \newlength{\fulllength}
@@ -157,8 +149,11 @@
 \newcommand\sectionTitle[2]{
     \section{\texorpdfstring{\color{accentcolor}#2\enspace \textsc{#1}}{#1}}}
 
-% Define the 'experiences' environment
+\newcommand\horizontalLine{
+    \rule{\textwidth}{0.4pt}
+}
 
+% Define the 'experiences' environment
 \newcolumntype{E}{>{\raggedright\arraybackslash}p{\rightcolumnlength}}
 
 \newenvironment{experiences}{%
@@ -196,22 +191,15 @@
 \definecolor{smcolor}{HTML}{333333}
 \definecolor{darkGrey}{HTML}{989898}
 
-% Set main fonts
-\defaultfontfeatures{Mapping=tex-text}
-\setmainfont[Color=primary, Path = fonts/calibri/]{Calibri}
-\setsansfont[Scale=MatchLowercase,Mapping=tex-text, Path = fonts/calibri/]{Calibri}
-\newcommand{\custombold}[1]{\color{subheadings}\fontspec[Path = fonts/calibri/]{CALIBRIB}\selectfont #1 \normalfont}
-
-
 % Header command
 \newcommand{\headername}[1]{\color{subheadings}
-\fontspec[Path = fonts/calibri/]{CALIBRIB}\fontsize{24pt}{12pt}\selectfont\vspace{10pt}\raggedright {#1} \normalfont}
+\fontspec[Path = fonts/calibri/]{calibri-bold}\fontsize{24pt}{12pt}\selectfont\vspace{10pt}\raggedright {#1} \normalfont}
 
 \titlespacing{\section}{0pt}{0pt}{0pt}
 
 % Headings command
 \titleformat{\section}{\color{headings}
-\fontspec[Path = fonts/calibri/]{Calibri}\fontsize{16pt}{24pt}\selectfont\raggedright}{} {0em}{}
+\fontspec[Path = fonts/calibri/]{calibri}\fontsize{16pt}{24pt}\selectfont\raggedright}{} {0em}{}
 
 \newcommand{\SectionHead}[1]{\smash{\begin{tabular}{l}
                                         \hline #1 \\ \hline
@@ -219,23 +207,23 @@
 
 % Subeadings command
 \titleformat{\subsection}{\color{subheadings}
-\fontspec[Path = fonts/calibri/]{Calibri}\fontsize{12pt}{12pt}\selectfont\bfseries\uppercase}{}{0em}{}
+\fontspec[Path = fonts/calibri/]{calibri}\fontsize{12pt}{12pt}\selectfont\bfseries\uppercase}{}{0em}{}
 \titlespacing{\subsection}{0pt}{\parskip}{-\parskip}
 \titlespacing{\subsubsection}{0pt}{\parskip}{-\parskip}
 \newcommand{\runsubsection}[1]{\color{subheadings}
-\fontspec[Path = fonts/calibri/]{CALIBRIB}\fontsize{12pt}{12pt}\selectfont\bfseries {#1} \normalfont}
+\fontspec[Path = fonts/calibri/]{calibri-bold}\fontsize{12pt}{12pt}\selectfont\bfseries {#1} \normalfont}
 
 % Descriptors command
-\newcommand{\descript}[1]{\color{subheadings}\raggedright\hspace*{0pt}\hfill\vspace{3pt}\fontspec[Path = fonts/calibri/]{CALIBRIB}\fontsize{11pt}{13pt}\selectfont {#1 \\} \normalfont}
+\newcommand{\descript}[1]{\color{subheadings}\raggedright\hspace*{0pt}\hfill\vspace{3pt}\fontspec[Path = fonts/calibri/]{calibri-bold}\fontsize{11pt}{13pt}\selectfont {#1 \\} \normalfont}
 
 % Item Description command
-\newcommand{\itemdes}[1]{\color{subheadings}\raggedright\vspace{2pt}\fontspec[Path = fonts/calibri/]{Calibri}\fontsize{11pt}{13pt}\selectfont {#1} \normalfont}
+\newcommand{\itemdes}[1]{\color{subheadings}\raggedright\vspace{2pt}\fontspec[Path = fonts/calibri/]{calibri}\fontsize{11pt}{13pt}\selectfont {#1} \normalfont}
 
 % Descriptors command
-\newcommand{\descriptright}[1]{\color{subheadings}\raggedright\hspace*{0pt}\hfill\fontspec[Path = fonts/calibri/]{CALIBRII}\fontsize{11pt}{12pt}\selectfont {#1 \\} \normalfont}
+\newcommand{\descriptright}[1]{\color{subheadings}\raggedright\hspace*{0pt}\hfill\fontspec[Path = fonts/calibri/]{calibri-italic}\fontsize{11pt}{12pt}\selectfont {#1 \\} \normalfont}
 
 % Descriptors datecolor
-\newcommand{\datecolor}[1]{\color{smcolor}\raggedright\scshape\fontspec[Path = fonts/calibri/]{CALIBRII}\fontsize{11pt}{13pt}\selectfont {#1 } \normalfont}
+\newcommand{\datecolor}[1]{\color{smcolor}\raggedright\scshape\fontspec[Path = fonts/calibri/]{calibri-italic}\fontsize{11pt}{13pt}\selectfont {#1 } \normalfont}
 
 % Section seperators command
 \newcommand{\sectionsep}[0]{\vspace{4pt}}
@@ -247,9 +235,9 @@
 
 % Define the 'referencees' environment
 \newenvironment{referees}{%
-}{%
-  \hfill
-  \bigskip
+    \par
+    }{%
+    \hfill \\
 }
 
 \newcommand*\referee[5]{
