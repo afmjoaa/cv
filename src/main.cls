@@ -26,6 +26,8 @@
 \RequirePackage[UKenglish]{isodate}
 \RequirePackage{xltxtra}
 \RequirePackage{amsmath}
+\RequirePackage{graphicx}
+\RequirePackage{tabularx}
 %\RequirePackage{ifthen}
 
 % Setup fancyhdr package
@@ -46,9 +48,9 @@
 \definecolor{secondaryText}{HTML}{777777}
 \definecolor{secondaryDarkText}{HTML}{646464}
 \definecolor{secondaryLightText}{HTML}{9a9a9a}
-\definecolor{accentcolor}{HTML}{1751A7}
+\definecolor{accentColor}{HTML}{1751A7}
 \definecolor{linkcolor}{HTML}{3873BF}
-%\colorlet{symbolcolor}{accentcolor!85}
+\colorlet{profileIconColor}{accentColor!60}
 
 % Define header icons
 \newcommand{\iconProfile}{\faUser}
@@ -74,7 +76,7 @@
 
 % Resume part title definition
 \newcommand\sectionTitle[2]{
-    \section{\texorpdfstring{\color{accentcolor}#2\enspace \textsc{#1}}{#1}}
+    \section{\texorpdfstring{\color{accentColor}#2\enspace \textsc{#1}}{#1}}
 }
 
 \newcommand\horizontalLine{
@@ -222,3 +224,10 @@
 }
 
 \newcommand\emptySeparator{\multicolumn{2}{c}{}\\}
+
+% Profile item
+\newcommand{\profileItem}[3]{
+    \href{#3}
+    {\custombold{\color{profileIconColor}\fontsize{14}{14}#1\quad \raisebox{2pt}{\color{primaryText}#2 \color{secondaryLightText}\fontsize{7}{7}\faLink}}}
+    \vspace{4pt}
+}
