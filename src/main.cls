@@ -52,6 +52,17 @@
 \definecolor{smcolor}{HTML}{333333}
 \definecolor{darkGrey}{HTML}{989898}
 
+% Define header icons
+\newcommand{\iconProfile}{\faUser}
+\newcommand{\iconCertificate}{\faCertificate}
+\newcommand{\iconCoursework}{\faBook}
+\newcommand{\iconEducation}{\faGraduationCap}
+\newcommand{\iconExperience}{\faBriefcase}
+\newcommand{\iconSkill}{\faMagic}
+\newcommand{\iconSideProjects}{\faCubes}
+\newcommand{\iconPublications}{\faFile}
+\newcommand{\iconReference}{\faQuoteLeft}
+
 % Setup CV sections
 \titleformat{\section}{\Large\raggedright}{}{0em}{}[\titlerule]
 \titlespacing{\section}{0pt}{2pt}{2pt}
