@@ -1,26 +1,26 @@
-\documentclass[localFont,alternative,10pt,compact]{main}
+\documentclass[10pt]{main}
 
 \begin{document}
     \input{footer}
 
     %-----------COLUMN ONE------------
     \begin{minipage}[t]{0.33\textwidth}
-        \input{section_left_contact}
-        \input{section_left_profile}
-        \input{section_left_certificate}
-        \input{section_left_coursework}
-        \input{section_left_education}
+        \input{sections/section_left_contact}
+        \input{sections/section_left_profile}
+        \input{sections/section_left_certificate}
+        \input{sections/section_left_coursework}
+        \input{sections/section_left_education}
     \end{minipage}
     \hspace*{0pt}\hfill
     %-----------COLUMN TWO------------
     \begin{minipage}[t]{0.66\textwidth}
-        \input{section_right_header}
-        \input{section_right_experience}
-        \input{section_right_skill}
+        \input{sections/section_right_header}
+        \input{sections/section_right_experience}
+        \input{sections/section_right_skill}
     \end{minipage}
 
     \newpage
-    \input{section_side_project}
-    \input{section_publications}
-    \input{section_references}
+    \input{sections/section_side_project}
+    \input{sections/section_publications}
+    \input{sections/section_references}
 \end{document}

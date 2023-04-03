@@ -2,41 +2,9 @@
 \NeedsTeXFormat{LaTeX2e}
 \def\@@ptsize{10pt}
 
-\DeclareOption{10pt}{\def\@@ptsize{10pt}}
-\DeclareOption{11pt}{\def\@@ptsize{11pt}}
-\DeclareOption{12pt}{\def\@@ptsize{12pt}}
-
-\ProcessOptions\relax
-
 \LoadClass[a4paper,\@@ptsize]{article}
 
-\newif\if@showLinks   \@showLinksfalse
-\newif\if@isCompact   \@isCompactfalse
-
-\DeclareOption{indigo}{
-    \def\@indigo{indigo}
-}
-
-\DeclareOption{monochrome}{
-    \def\@monochrome{monochrome}
-}
-
-\DeclareOption{localFont}{
-    \def\@local{local}
-}
-
-\DeclareOption{alternative}{
-    \def\@alternative{alternate}
-}
-
-\DeclareOption{showLinks}{ \@showLinkstrue}
-\DeclareOption{compact}{ \@isCompacttrue}
-
-\ProcessOptions
-
-
 % Dependences
-%A Few Useful Packages
 \RequirePackage{fullpage}
 \RequirePackage[margin=0cm]{geometry}
 \RequirePackage[english]{babel}
@@ -45,7 +13,6 @@
 \RequirePackage{url,parskip}
 \RequirePackage[usenames,dvipsnames]{xcolor}
 \RequirePackage[fixed]{fontawesome5}
-%\RequirePackage{hyperref}
 \RequirePackage{titlesec}
 \RequirePackage{array}
 \RequirePackage{enumitem}
@@ -54,27 +21,12 @@
 \RequirePackage{tikz}
 \RequirePackage[skins]{tcolorbox}
 \RequirePackage{fancyhdr}
-\RequirePackage{ifthen}
-
-\RequirePackage[usenames,dvipsnames]{xcolor}
 \RequirePackage[hidelinks]{hyperref}
-\RequirePackage{titlesec}
 \RequirePackage[absolute]{textpos}
 \RequirePackage[UKenglish]{isodate}
-\RequirePackage{fontspec,xltxtra}
-\RequirePackage{blindtext}
-\RequirePackage{lipsum}
+\RequirePackage{xltxtra}
 \RequirePackage{amsmath}
-
-
-% Define default accent colors
-\definecolor{basecolor}{HTML}{000066} %BLUE
-\definecolor{darkGrey}{HTML}{989898}
-
-\colorlet{linkcolor}{basecolor}
-\colorlet{accentcolor}{linkcolor!90}
-\colorlet{symbolcolor}{linkcolor!85}
-
+%\RequirePackage{ifthen}
 
 % Setup fancyhdr package
 \fancyhf{}
@@ -83,10 +35,22 @@
 \geometry{left=1.3cm}
 \geometry{right=1.3cm}
 \geometry{top=1cm}
-
 % Remove head rule
 \renewcommand{\headrulewidth}{0pt}
 \pagestyle{fancy}
+
+% Define default accent colors
+\definecolor{basecolor}{HTML}{000066} %BLUE
+\definecolor{darkGrey}{HTML}{989898}
+\colorlet{linkcolor}{basecolor}
+\colorlet{accentcolor}{linkcolor!90}
+\colorlet{symbolcolor}{linkcolor!85}
+\definecolor{date}{HTML}{666666}
+\definecolor{primary}{HTML}{000002}
+\definecolor{headings}{HTML}{0000ff}
+\definecolor{subheadings}{HTML}{333333}
+\definecolor{smcolor}{HTML}{333333}
+\definecolor{darkGrey}{HTML}{989898}
 
 % Setup CV sections
 \titleformat{\section}{\Large\raggedright}{}{0em}{}[\titlerule]
@@ -104,13 +68,9 @@
 
 % Setup fonts
 \defaultfontfeatures{Mapping=tex-text}
-
-% Define font
-\defaultfontfeatures{Mapping=tex-text}
 \setmainfont[Color=primary, Path = fonts/calibri/]{calibri}
 \setsansfont[Scale=MatchLowercase,Mapping=tex-text, Path = fonts/calibri/]{calibri}
 \newcommand{\custombold}[1]{\color{subheadings}\fontspec[Path = fonts/calibri/]{calibri-bold}\selectfont #1 \normalfont}
-
 
 %New length definition
 \newlength{\fulllength}
@@ -184,12 +144,7 @@
 
 
 % Color definitions
-\definecolor{date}{HTML}{666666}
-\definecolor{primary}{HTML}{000002}
-\definecolor{headings}{HTML}{0000ff}
-\definecolor{subheadings}{HTML}{333333}
-\definecolor{smcolor}{HTML}{333333}
-\definecolor{darkGrey}{HTML}{989898}
+
 
 % Header command
 \newcommand{\headername}[1]{\color{subheadings}
