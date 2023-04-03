@@ -61,6 +61,26 @@
 \newcommand{\iconPublications}{\faFile}
 \newcommand{\iconReference}{\faQuoteLeft}
 
+\newcommand\horizontalLineLeft{
+    \color{secondaryLightText}\noindent\rule{5cm}{0.4pt}
+    \vspace{0.2cm}
+}
+
+\newcommand\horizontalLineRight{
+    \color{secondaryLightText}\noindent\rule{12.5cm}{0.4pt}
+
+    \vspace{0.2cm}
+}
+
+% Resume part title definition
+\newcommand\sectionTitle[2]{
+    \section{\texorpdfstring{\color{accentcolor}#2\enspace \textsc{#1}}{#1}}
+}
+
+\newcommand\horizontalLine{
+    \rule{\textwidth}{0.4pt}
+}
+
 % Setup CV sections
 \titleformat{\section}{\Large\raggedright}{}{0em}{}[\titlerule]
 \titlespacing{\section}{0pt}{2pt}{2pt}
@@ -114,13 +134,6 @@
     \fancyfoot[R]{#3}
 }
 
-% Resume part title definition
-\newcommand\sectionTitle[2]{
-    \section{\texorpdfstring{\color{accentcolor}#2\enspace \textsc{#1}}{#1}}}
-
-\newcommand\horizontalLine{
-    \rule{\textwidth}{0.4pt}
-}
 
 % Header command
 \newcommand{\headername}[1]{\color{primaryText}
