@@ -136,7 +136,6 @@
     \fancyfoot[R]{#3}
 }
 
-
 % Header command
 \newcommand{\headername}[1]{\color{primaryText}
 \fontspec[Path = fonts/calibri/]{calibri-bold}\fontsize{24pt}{12pt}\selectfont\vspace{10pt}\raggedright {#1} \normalfont}
@@ -193,10 +192,10 @@
   \hspace{1em}
   \begin{minipage}[t]{\dimexpr(\linewidth/3) - 3em}
     \begin{tabular}{>{}l >{}l}
-      \multicolumn{2}{l}{\textbf{#1}}\\
-      \multicolumn{2}{l}{\emph{#2}, \textsc{#3}}\\
-      \quad \faEnvelope & #4 \\
-      \quad \faPhone & #5 \\
+      \multicolumn{2}{l}{\fontsize{12pt}{15pt}\textbf{#1}\vspace{2pt}}\\
+      \multicolumn{2}{l}{\emph{\fontsize{11pt}{14pt}#2}, \textsc{\fontsize{11pt}{14pt}#3}\vspace{5pt}}\\
+      \quad \color{secondaryDarkText}\faPhone & \fontsize{11pt}{14pt}#4\vspace{2pt} \\
+      \quad \color{secondaryDarkText}\faEnvelope & \fontsize{11pt}{14pt}\href{mailto:#5}{#5} \\
     \end{tabular}
   \end{minipage}%
   }
