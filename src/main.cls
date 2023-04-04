@@ -88,8 +88,8 @@
 \titlespacing{\section}{0pt}{2pt}{2pt}
 
 % Configure list
-\setlist[itemize,1]{label=\faAngleRight, nosep, leftmargin=2em}
-\setlist[itemize,2]{label=\faAngleRight, nosep, leftmargin=1.5em}
+\setlist[itemize,1]{label=\faAngleRight, nosep, leftmargin=2em, itemsep=0.2em}
+\setlist[itemize,2]{label=\faAngleRight, nosep, leftmargin=1.5em, itemsep=0.2em}
 
 % Setup Array : new column type
 \newcolumntype{R}[1]{>{\hfill}m{#1}}
@@ -181,6 +181,8 @@
                                                  \itemsep1pt \parskip0pt \parsep0pt}{
 \end{itemize}\vspace{-\topsep}}
 
+\newcolumntype{E}{>{\raggedright\arraybackslash}p{\rightcolumnlength}}
+
 % Define the 'referencees' environment
 \newenvironment{referees}{%
     \par
@@ -188,7 +190,7 @@
     \hfill \\
 }
 
-\newcommand*\referee[5]{
+\newcommand*\refereeItem[5]{
   \hspace{1em}
   \begin{minipage}[t]{\dimexpr(\linewidth/3) - 3em}
     \begin{tabular}{>{}l >{}l}
@@ -199,33 +201,6 @@
     \end{tabular}
   \end{minipage}%
   }
-
-% Define the 'experiences' environment
-\newcolumntype{E}{>{\raggedright\arraybackslash}p{\rightcolumnlength}}
-
-\newenvironment{experiences}{%
-    \begin{longtable}{R{\leftcolumnlength}|E}
-    }{%
-    \end{longtable}
-}
-
-% Render an experience in the experiences environment
-% Usage:
-% \experience
-%  {<End date>}      {<Title>}{<Enterprise>}{<Country>}
-%  {<Start date}     {
-%                      <Experience description (Could be a list)>
-%                    }
-%                    {<Technology list>}
-\newcommand\experience[7]{
-    \textbf{#1}    & \textbf{#2, \textsc{#3}, #4}                                \\*
-    \textbf{#5}    & \begin{minipage}[t]{\rightcolumnlength}
-                         #6
-    \end{minipage}                                        \\*
-    & \footnotesize{\foreach \n in {#7}{\cvtag{\n}}}    \\
-}
-
-\newcommand\emptySeparator{\multicolumn{2}{c}{}\\}
 
 % Profile item
 \newcommand{\profileItem}[3]{
@@ -273,3 +248,24 @@
     \end{minipage}%
     \sectionsep
 }
+
+% link icon need to be universal
+\newcommand{\linkIcon}{\raisebox{1pt}{\color{secondaryLightText}\fontsize{7}{7}\faLink}}
+
+% Universal list
+\newenvironment{universalList}{%
+    \begin{longtable}{R{\leftcolumnlength}|E}
+    }{%
+    \end{longtable}
+}
+
+% Universal List item
+\newcommand\universalListItem[8]{
+    \datecolor{#1}    & \runsubsection{\href{#4}{#3 \linkIcon}\hspace*{0pt}\hfill\href{#6}{#5 \linkIcon}} \\*
+    \datecolor{#2}    & \begin{minipage}[t]{\rightcolumnlength\vspace{4pt}}
+                            #7
+    \end{minipage} \\*
+    &  \footnotesize{\foreach \n in {#8}{\cvtag{\n} \vspace{0.3pt}}} \\
+}
+
+\newcommand\emptySeparator{\multicolumn{2}{c}{}\\}
