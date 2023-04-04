@@ -98,9 +98,9 @@
 \hyphenation{im-pre-se}
 
 % Setup fonts
-\defaultfontfeatures{Mapping=tex-text}
+\defaultfontfeatures{Ligatures=TeX}
 \setmainfont[Color=primaryText, Path = fonts/calibri/]{calibri}
-\setsansfont[Scale=MatchLowercase,Mapping=tex-text, Path = fonts/calibri/]{calibri}
+\setsansfont[Scale=MatchLowercase, Ligatures=TeX, Path = fonts/calibri/]{calibri}
 \newcommand{\custombold}[1]{\color{primaryText}\fontspec[Path = fonts/calibri/]{calibri-bold}\selectfont #1 \normalfont}
 
 %New length definition
@@ -152,12 +152,14 @@
 \end{tabular}\hspace*{-\tabcolsep}}}
 
 % Subeadings command
-\titleformat{\subsection}{\color{primaryText}
-\fontspec[Path = fonts/calibri/]{calibri}\fontsize{12pt}{12pt}\selectfont\bfseries\uppercase}{}{0em}{}
+\titleformat{\subsection}{
+    \color{primaryText}\fontspec[Path = fonts/calibri/]{calibri}\fontsize{12pt}{12pt}\selectfont\bfseries\uppercase
+}{}{0em}{}
 \titlespacing{\subsection}{0pt}{\parskip}{-\parskip}
 \titlespacing{\subsubsection}{0pt}{\parskip}{-\parskip}
 \newcommand{\runsubsection}[1]{\color{primaryText}
-\fontspec[Path = fonts/calibri/]{calibri-bold}\fontsize{12pt}{12pt}\selectfont\bfseries {#1} \normalfont}
+    \fontspec[Path = fonts/calibri/]{calibri-bold}\fontsize{12pt}{12pt}\selectfont\bfseries {#1} \normalfont
+}
 
 % Descriptors command
 \newcommand{\descript}[1]{\color{primaryText}\raggedright\hspace*{0pt}\hfill\vspace{3pt}\fontspec[Path = fonts/calibri/]{calibri-bold}\fontsize{11pt}{13pt}\selectfont {#1 \\} \normalfont}
@@ -237,4 +239,13 @@
     \href{#2}
     {\fontsize{12pt}{12pt}\selectfont\bfseries\uppercase{#1} \raisebox{1pt}{\color{secondaryLightText}\fontsize{7}{7}\faLink}}
     \vspace{6pt}
+}
+
+% Education item
+\newcommand{\educationItem}[4]{
+    \datecolor{#1}
+    \subsection{#2}\label{subsec:2}
+    #3 \\
+    #4 \\
+    \vspace{8pt}
 }
