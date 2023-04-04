@@ -231,3 +231,10 @@
     {\custombold{\color{profileIconColor}\fontsize{14}{14}#1\quad \raisebox{2pt}{\color{primaryText}#2 \color{secondaryLightText}\fontsize{7}{7}\faLink}}}
     \vspace{4pt}
 }
+
+% Certificate item
+\newcommand{\certificateItem}[2]{
+    \href{#2}
+    {\fontsize{12pt}{12pt}\selectfont\bfseries\uppercase{#1} \raisebox{1pt}{\color{secondaryLightText}\fontsize{7}{7}\faLink}}
+    \vspace{6pt}
+}
