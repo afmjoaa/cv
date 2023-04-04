@@ -259,7 +259,7 @@
     \end{longtable}
 }
 
-% Universal List item
+% Universal list item
 \newcommand\universalListItem[8]{
     \datecolor{#1}    & \runsubsection{\href{#4}{#3 \linkIcon}\hspace*{0pt}\hfill\href{#6}{#5 \linkIcon}} \\*
     \datecolor{#2}    & \begin{minipage}[t]{\rightcolumnlength\vspace{4pt}}
