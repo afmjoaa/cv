@@ -265,3 +265,12 @@
     \end{minipage}%
     \sectionsep
 }
+
+% Skill item
+\newcommand{\skillItem}[2]{
+    \runsubsection{#1 \vspace{5pt}} \\
+    \begin{minipage}{\textwidth\vspace{2pt}}
+        \footnotesize{\foreach \n in {#2}{\cvtag{\n} \vspace{0.3pt}}}
+    \end{minipage}%
+    \sectionsep
+}
