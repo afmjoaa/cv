@@ -44,7 +44,7 @@
 % Define default accent colors
 \definecolor{titleText}{HTML}{0000ff}
 \definecolor{primaryText}{HTML}{464646}
-\definecolor{PrimaryDarkText}{HTML}{989898}
+\definecolor{primaryDarkText}{HTML}{989898}
 \definecolor{secondaryText}{HTML}{777777}
 \definecolor{secondaryDarkText}{HTML}{646464}
 \definecolor{secondaryLightText}{HTML}{9a9a9a}
@@ -124,7 +124,7 @@
 % Create a tag
 % Usage: \cvtag{<tag label>}
 \newcommand{\cvtag}[1]{%
-    \tikz[baseline]\node[anchor=base,draw=PrimaryDarkText,rounded corners=0.5ex,inner xsep=1ex,inner ysep =0.55ex,text height=1.3ex,text depth=.25ex]{#1};
+    \tikz[baseline]\node[anchor=base,draw=secondaryLightText,rounded corners=0.6ex,inner xsep=1ex,inner ysep =0.55ex,text height=1.5ex,text depth=.25ex]{#1};
 }
 
 % Define a footer for CV
@@ -162,13 +162,14 @@
 }
 
 % Descriptors command
-\newcommand{\descript}[1]{\color{primaryText}\raggedright\hspace*{0pt}\hfill\vspace{3pt}\fontspec[Path = fonts/calibri/]{calibri-bold}\fontsize{11pt}{13pt}\selectfont {#1 \\} \normalfont}
+\newcommand{\descript}[1]{\color{primaryText}\raggedright\hspace*{0pt}\hfill\vspace{3pt}\fontspec[Path = fonts/calibri/]{calibri-bold}\fontsize{11pt}{13pt}\selectfont{\vspace{2pt}#1\\}\normalfont}
 
 % Item Description command
 \newcommand{\itemdes}[1]{\color{primaryText}\raggedright\vspace{2pt}\fontspec[Path = fonts/calibri/]{calibri}\fontsize{11pt}{13pt}\selectfont {#1} \normalfont}
 
 % Descriptors command
-\newcommand{\descriptright}[1]{\color{primaryText}\raggedright\hspace*{0pt}\hfill\fontspec[Path = fonts/calibri/]{calibri-italic}\fontsize{11pt}{12pt}\selectfont {#1 \\} \normalfont}
+\newcommand{\descriptright}[1]{
+    \color{primaryText}\raggedright\hspace*{0pt}\hfill\fontspec[Path = fonts/calibri/]{calibri-italic}\fontsize{11pt}{12pt}\selectfont{#1\vspace{2pt}\\}\normalfont}
 
 % Descriptors datecolor
 \newcommand{\datecolor}[1]{\color{secondaryDarkText}\raggedright\scshape\fontspec[Path = fonts/calibri/]{calibri-italic}\fontsize{11pt}{13pt}\selectfont {#1 } \normalfont}
@@ -248,4 +249,19 @@
     #3 \\
     #4 \\
     \vspace{8pt}
+}
+
+% List item one
+\newcommand{\listItemOne}[6]{
+    \datecolor{#1} \runsubsection{\href{#3}{#2 \raisebox{1pt}{\color{secondaryLightText}\fontsize{7}{7}\faLink}}}
+    \descript{#4}
+    \noindent\hspace{5em}%
+    \begin{minipage}{0.85\textwidth\vspace{2pt}}
+        #5
+    \end{minipage} \\
+    \noindent\hspace{5em}%
+    \begin{minipage}{0.85\textwidth\vspace{2pt}}
+        \footnotesize{\foreach \n in {#6}{\cvtag{\n} \vspace{0.3pt}}}
+    \end{minipage}%
+    \sectionsep
 }
