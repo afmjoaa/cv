@@ -80,7 +80,7 @@
 }
 
 \newcommand\horizontalLine{
-    \rule{\textwidth}{0.4pt}
+    \color{secondaryLightText}\rule{\textwidth}{0.4pt}
 }
 
 % Setup CV sections
