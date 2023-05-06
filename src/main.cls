@@ -263,9 +263,19 @@
 \newcommand\universalListItem[8]{
     \datecolor{#1}    & \runsubsection{\href{#4}{#3 \linkIcon}\hspace*{0pt}\hfill\href{#6}{#5 \linkIcon}} \\*
     \datecolor{#2}    & \begin{minipage}[t]{\rightcolumnlength\vspace{4pt}}
-                            #7
+                          \vspace{0pt}#7
     \end{minipage} \\*
     &  \footnotesize{\foreach \n in {#8}{\cvtag{\n} \vspace{0.3pt}}} \\
+}
+
+
+% Universal list item
+\newcommand\universalListItemWithoutLink[7]{
+    \datecolor{#1}    & \runsubsection{#3 \hspace*{0pt}\hfill\href{#5}{#4 \linkIcon}} \\*
+    \datecolor{#2}    & \begin{minipage}[t]{\rightcolumnlength\vspace{4pt}}
+                          \vspace{0pt}#6
+    \end{minipage} \\*
+    &  \footnotesize{\foreach \n in {#7}{\cvtag{\n} \vspace{0.3pt}}} \\
 }
 
 \newcommand\emptySeparator{\multicolumn{2}{c}{}\\}
